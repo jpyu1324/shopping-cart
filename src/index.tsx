@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { RecoilRoot } from "recoil";
 import reportWebVitals from "@src/reportWebVitals";
 import Routes from "@src/routes";
-import { RecoilRoot } from "recoil";
+import "@src/states/mobx/configure";
 
 ReactDOM.render(
   <React.StrictMode>
