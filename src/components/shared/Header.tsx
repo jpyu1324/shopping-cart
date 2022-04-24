@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
 import { CartIcon } from "@src/components/icons";
 import styles from "@src/components/shared/header.module.scss";
 import { useCart } from "@src/hooks/useCart";
@@ -19,4 +20,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default process.env.REACT_APP_ENV === "mobx" ? observer(Header) : Header;

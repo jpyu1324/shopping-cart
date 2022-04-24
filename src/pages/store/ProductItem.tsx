@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
 
 import { useCart } from "@src/hooks/useCart";
 import { formatNumber } from "@src/helpers/utils";
@@ -58,4 +59,6 @@ const ProductItem = ({ product }: ProductItemProps) => {
   );
 };
 
-export default ProductItem;
+export default process.env.REACT_APP_ENV === "mobx"
+  ? observer(ProductItem)
+  : ProductItem;

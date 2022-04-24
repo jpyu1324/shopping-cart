@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
 
 import CartProducts from "@src/pages/cart/CartProducts";
 import Layout from "@src/components/Layout";
 import { useCart } from "@src/hooks/useCart";
 import { formatNumber } from "@src/helpers/utils";
-
 const Cart = () => {
   const { total, cartItems, itemCount, clearCart, checkout, handleCheckout } =
     useCart();
@@ -70,4 +70,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default process.env.REACT_APP_ENV === "mobx" ? observer(Cart) : Cart;

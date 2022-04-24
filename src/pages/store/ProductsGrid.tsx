@@ -1,5 +1,5 @@
 import React from "react";
-
+import { observer } from "mobx-react";
 import ProductItem from "@src/pages/store/ProductItem";
 import styles from "@src/pages/store/ProductsGrid.module.scss";
 
@@ -36,4 +36,6 @@ const ProductsGrid = () => {
   );
 };
 
-export default ProductsGrid;
+export default process.env.REACT_APP_ENV === "mobx"
+  ? observer(ProductsGrid)
+  : ProductsGrid;

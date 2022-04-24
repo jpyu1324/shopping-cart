@@ -1,6 +1,7 @@
 import React from "react";
+import { observer } from "mobx-react";
 
-import CartItem from "./CartItem";
+import CartItem from "@src/pages/cart/CartItem";
 import { useCart } from "@src/hooks/useCart";
 import styles from "@src/pages/cart/CartProducts.module.scss";
 
@@ -18,4 +19,6 @@ const CartProducts = () => {
   );
 };
 
-export default CartProducts;
+export default process.env.REACT_APP_ENV === "mobx"
+  ? observer(CartProducts)
+  : CartProducts;

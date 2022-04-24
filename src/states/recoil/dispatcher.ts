@@ -75,7 +75,7 @@ const dispatcher = (): Dispatcher => {
         const newCartItems = cartItems.filter((item) => item.id !== product.id);
 
         set($cartItems, newCartItems);
-        Storage(cartItems);
+        Storage(newCartItems);
       }
   );
 

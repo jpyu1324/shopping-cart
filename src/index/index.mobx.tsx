@@ -1,19 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HelmetProvider } from "react-helmet-async";
-import CartContextProvider from "@src/states/contexts/CartContext";
-import ProductsContextProvider from "@src/states/contexts/ProductsContext";
+import { RecoilRoot } from "recoil";
 import reportWebVitals from "@src/reportWebVitals";
 import Routes from "@src/routes";
+import "@src/states/mobx/configure";
 
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>
-      <ProductsContextProvider>
-        <CartContextProvider>
-          <Routes />
-        </CartContextProvider>
-      </ProductsContextProvider>
+      <RecoilRoot>
+        <Routes />
+      </RecoilRoot>
     </HelmetProvider>
     ,
   </React.StrictMode>,
