@@ -1,4 +1,4 @@
-import { Product } from "@src/contexts/ProductsContext";
+import { Product } from "@src/states/contexts/ProductsContext";
 
 const Storage = (cartItems) => {
   localStorage.setItem(

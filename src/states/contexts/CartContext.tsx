@@ -3,8 +3,8 @@ import {
   CartReducer,
   CartReducerState,
   sumItems
-} from "@src/contexts/CartReducer";
-import { Product } from "@src/contexts/ProductsContext";
+} from "@src/states/contexts/CartReducer";
+import { Product } from "@src/states/contexts/ProductsContext";
 
 type CartContext =
   | ({
