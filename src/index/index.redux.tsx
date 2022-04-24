@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HelmetProvider } from "react-helmet-async";
-import CartContextProvider from "@src/contexts/CartContext";
-import ProductsContextProvider from "@src/contexts/ProductsContext";
+import CartContextProvider from "@src/states/contexts/CartContext";
+import ProductsContextProvider from "@src/states/contexts/ProductsContext";
 import reportWebVitals from "@src/reportWebVitals";
 import Routes from "@src/routes";
 

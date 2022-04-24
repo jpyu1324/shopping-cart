@@ -1,6 +1,4 @@
 import React, { createContext, useState } from "react";
-import { dummyProducts } from "@src/services/products";
-import { useEffect } from "react";
 
 export interface Product {
   id: number;
@@ -9,22 +7,21 @@ export interface Product {
   photo: string;
 }
 
-export const ProductsContext = createContext<{ products: Product[] }>({
-  products: []
+interface ProductsContextProps {
+  products: Product[];
+  setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+}
+
+export const ProductsContext = createContext<ProductsContextProps>({
+  products: [],
+  setProducts: () => {}
 });
 
 const ProductsContextProvider = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
 
-  // fake api call
-  useEffect(() => {
-    setTimeout(() => {
-      setProducts(() => dummyProducts);
-    }, 2000);
-  }, []);
-
   return (
-    <ProductsContext.Provider value={{ products }}>
+    <ProductsContext.Provider value={{ products, setProducts }}>
       {children}
     </ProductsContext.Provider>
   );

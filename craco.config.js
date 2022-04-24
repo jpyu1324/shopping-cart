@@ -1,4 +1,5 @@
 const CracoAlias = require("craco-alias");
+const { ESLINT_MODES } = require("@craco/craco");
 
 module.exports = {
   plugins: [
@@ -9,5 +10,8 @@ module.exports = {
         tsConfigPath: "tsconfig.paths.json"
       }
     }
-  ]
+  ],
+  eslint: {
+    mode: ESLINT_MODES.file
+  }
 };

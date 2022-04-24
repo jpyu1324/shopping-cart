@@ -3,7 +3,7 @@ import React from "react";
 import ProductItem from "@src/pages/store/ProductItem";
 import styles from "@src/pages/store/ProductsGrid.module.scss";
 
-import { useProducts } from "@src/hooks/useProducts";
+import useProducts from "@src/hooks/useProducts";
 
 const ProductsGrid = () => {
   const { products } = useProducts();

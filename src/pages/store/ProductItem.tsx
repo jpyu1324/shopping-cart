@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 
 import { useCart } from "@src/hooks/useCart";
 import { formatNumber } from "@src/helpers/utils";
+import { Product } from "@src/hooks/types";
 
-const ProductItem = ({ product }) => {
+interface ProductItemProps {
+  product: Product;
+}
+
+const ProductItem = ({ product }: ProductItemProps) => {
   const { addProduct, cartItems, increase } = useCart();
 
   const isInCart = (product) => {
