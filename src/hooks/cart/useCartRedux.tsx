@@ -1,32 +1,23 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@src/states/redux/store";
 import { Product } from "@src/hooks/types";
 import cartSlice from "@src/states/redux/reducers/cart";
+import {
+  itemCountSelector,
+  totalPriceSelector,
+  totalSelector
+} from "@src/states/redux/selectors";
 
 export const useCart = () => {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   const checkout = useSelector((state: RootState) => state.cart.checkout);
+
+  const itemCount = useSelector(itemCountSelector);
+  const totalPrice = useSelector(totalPriceSelector);
+  const total = useSelector(totalSelector);
+
   const dispatch = useDispatch();
-
-  const itemCount = useMemo(() => {
-    return cartItems.reduce((total, product) => total + product.quantity, 0);
-  }, [cartItems]);
-
-  const totalPrice = useMemo(() => {
-    return cartItems
-      .map((item) => item.price * item.quantity)
-      .reduce((total, price) => {
-        total += price;
-        return total;
-      }, 0);
-  }, [cartItems]);
-
-  const total = useMemo(() => {
-    return cartItems
-      .reduce((total, product) => total + product.price * product.quantity, 0)
-      .toFixed(2);
-  }, [cartItems]);
 
   const increase = (product: Product) => {
     dispatch(cartSlice.actions.increase(product));

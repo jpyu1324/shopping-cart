@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { CartItem } from "@src/hooks/types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CartItem, Product } from "@src/hooks/types";
 import { Storage } from "@src/states/recoil/utils";
-import { stat } from "fs";
+
 type CartType = {
   cartItems: CartItem[];
   checkout: boolean;
@@ -19,37 +19,34 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    increase(state, action) {
-      const cartItems = [...state.cartItems];
+    increase(state, action: PayloadAction<Product>) {
+      const cartItems = state.cartItems;
       const idx = cartItems.findIndex((item) => item.id === action.payload.id);
       if (idx !== -1) {
         cartItems[idx].quantity++;
       }
-      state.cartItems = cartItems;
       Storage(cartItems);
     },
-    decrease(state, action) {
-      const cartItems = [...state.cartItems];
+    decrease(state, action: PayloadAction<Product>) {
+      const cartItems = state.cartItems;
       const idx = cartItems.findIndex((item) => item.id === action.payload.id);
       if (idx !== -1) {
         cartItems[idx].quantity--;
       }
-      state.cartItems = cartItems;
       Storage(cartItems);
     },
-    addProduct(state, action) {
-      const cartItems = [...state.cartItems];
+    addProduct(state, action: PayloadAction<Product>) {
+      const cartItems = state.cartItems;
       if (!cartItems.find((item) => item.id === action.payload.id)) {
         cartItems.push({
           ...action.payload,
           quantity: 1
         });
       }
-      state.cartItems = cartItems;
       Storage(cartItems);
     },
-    removeProduct(state, action) {
-      const cartItems = [...state.cartItems];
+    removeProduct(state, action: PayloadAction<Product>) {
+      const cartItems = state.cartItems;
       const result = cartItems.filter((item) => item.id !== action.payload.id);
       state.cartItems = result;
       Storage(cartItems);
