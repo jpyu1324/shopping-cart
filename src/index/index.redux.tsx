@@ -1,19 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HelmetProvider } from "react-helmet-async";
-import CartContextProvider from "@src/states/contexts/CartContext";
-import ProductsContextProvider from "@src/states/contexts/ProductsContext";
 import reportWebVitals from "@src/reportWebVitals";
 import Routes from "@src/routes";
+import { Provider } from "react-redux";
+import store from "@src/states/redux/store";
 
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>
-      <ProductsContextProvider>
-        <CartContextProvider>
-          <Routes />
-        </CartContextProvider>
-      </ProductsContextProvider>
+      <Provider store={store}>
+        <Routes />
+      </Provider>
     </HelmetProvider>
     ,
   </React.StrictMode>,

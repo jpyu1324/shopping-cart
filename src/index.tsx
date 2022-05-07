@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { RecoilRoot } from "recoil";
 import reportWebVitals from "@src/reportWebVitals";
 import Routes from "@src/routes";
-import "@src/states/mobx/configure";
+import { Provider } from "react-redux";
+import store from "@src/states/redux/store";
 
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>
-      <RecoilRoot>
+      <Provider store={store}>
         <Routes />
-      </RecoilRoot>
+      </Provider>
     </HelmetProvider>
     ,
   </React.StrictMode>,
