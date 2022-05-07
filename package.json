@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.4.3",
+    "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -13,6 +14,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.2.3",
+    "react-redux": "^8.0.1",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "recoil": "^0.7.2",
@@ -22,7 +24,7 @@
   "scripts": {
     "start": "craco start",
     "start:context": "node ./config/config.context.js && cross-env REACT_APP_ENV=context yarn start",
-    "start:redux": "cp src/index/index.context.tsx src/index.tsx && cross-env REACT_APP_ENV=redux yarn start",
+    "start:redux": "node ./config/config.redux.js && cross-env REACT_APP_ENV=redux yarn start",
     "start:mobx": "node ./config/config.mobx.js && cross-env REACT_APP_ENV=mobx yarn start",
     "start:recoil": "node ./config/config.recoil.js && cross-env REACT_APP_ENV=recoil yarn start",
     "build": "craco build",

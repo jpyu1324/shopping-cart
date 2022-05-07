@@ -7,6 +7,7 @@ export const useCart = (): any => {
   return {
     cartItems: cartStore.cartItems,
     total: cartStore.total,
+    checkout: cartStore.checkout,
     itemCount: cartStore.itemCount,
     totalPrice: cartStore.totalPrice,
     ...dispatcher

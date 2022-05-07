@@ -1,4 +1,4 @@
-import { $cartItems } from "@src/states/recoil/atom";
+import { $cartItems, $checkout } from "@src/states/recoil/atom";
 import dispatcher from "@src/states/recoil/dispatcher";
 import { $itemCount, $total, $totalPrice } from "@src/states/recoil/selector";
 import { useRef } from "react";
@@ -10,8 +10,10 @@ export const useCart = (): any => {
   const total = useRecoilValue($total);
   const totalPrice = useRecoilValue($totalPrice);
   const itemCount = useRecoilValue($itemCount);
+  const checkout = useRecoilValue($checkout);
   return {
     cartItems,
+    checkout,
     total,
     itemCount,
     totalPrice,
