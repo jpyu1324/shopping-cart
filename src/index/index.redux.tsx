@@ -13,7 +13,6 @@ ReactDOM.render(
         <Routes />
       </Provider>
     </HelmetProvider>
-    ,
   </React.StrictMode>,
   document.getElementById("root")
 );

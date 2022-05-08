@@ -12,7 +12,6 @@ ReactDOM.render(
         <Routes />
       </RecoilRoot>
     </HelmetProvider>
-    ,
   </React.StrictMode>,
   document.getElementById("root")
 );

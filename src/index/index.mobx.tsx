@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { RecoilRoot } from "recoil";
 import reportWebVitals from "@src/reportWebVitals";
 import Routes from "@src/routes";
 import "@src/states/mobx/configure";
@@ -9,11 +8,8 @@ import "@src/states/mobx/configure";
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>
-      <RecoilRoot>
-        <Routes />
-      </RecoilRoot>
+      <Routes />
     </HelmetProvider>
-    ,
   </React.StrictMode>,
   document.getElementById("root")
 );
